@@ -39,7 +39,7 @@ public static void sandwichSplitter(String sandwich) {
 		}
 	if(secondBread.equals("bread")) {
 		for (int i = sandwich.length() - 5; i <= sandwich.length(); i++) {
-			sandwichArrayForm = sandwich.split(sandwich.charAt(i));
+
 		}
 	}
 	
