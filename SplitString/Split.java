@@ -32,23 +32,18 @@ public static void main(String[] args) {
 * use String.split to split up the sandwich at the spaces, " ", and return what's in the middle of the sandwich and ignores what's on the outside
 * Again, what if it's a fancy sandwich with multiple pieces of bread?
 */
+	
+System.out.println("part 0");
 String[] splitdis = "I like apples!".split(" ");
 System.out.println(Arrays.toString(splitdis));
 
 System.out.println(Arrays.toString("I reallyreally like apples!".split("really")));
 System.out.println("breadapplespineapplesbreadlettustomatobaconmayohambreadcheesebread".indexOf("bread"));
-String sandwich = "breadapplespineapplesbreadlettustomatobaconmayohambreadcheesebread";
-String bread = sandwich.substring(sandwich.indexOf("bread")+5);
-int slices = 1;
-//while there is still bread in the string, eliminate each slice 
-while (bread.indexOf("bread") >= 0){
-	bread = bread.substring(bread.indexOf("bread")+5);
-	slices++;
-	
-}
 
-System.out.println("Slices of bread: " + slices);
-sandwichSplitter("breadapplespineapplesbreadlettustomatobaconmayohambreadcheesebread");
+System.out.println("part 1");
+sandwichSplitter("breadmayohambreadcheesebread");
+System.out.println("part 2");
+spaceSandwichSplitter("bread mayo ham bread cheese");
 	}
 public static void sandwichSplitter(String sandwich) {
 //checks if there is any bread in the sandwich
@@ -56,16 +51,39 @@ public static void sandwichSplitter(String sandwich) {
 	if(sandwich.indexOf("bread") < 0) {
 		System.out.println("that's a salad, not a sandwich");
 	}
+	
 	String[] ingredients = sandwich.split("bread");
 
 	if(sandwich.indexOf("bread") == 0 && sandwich.endsWith("bread")) {
-			if(sandwich.indexOf("bread") > 0 && sandwich.lastIndexOf("bread") < sandwich.length()-5) {
-				
-					
-			
-		}
+			for(int i = 0; i < ingredients.length; i++) {
+				System.out.print(ingredients[i]);
 	
 		}
-	}
+			
+	
+		
+	} else if(sandwich.indexOf("bread") > 0 && sandwich.indexOf("bread") != sandwich.length()-5) {
+		for(int i = 1; i < ingredients.length-1; i++) {
+			System.out.print(ingredients[i]);
+		}
+	} else if(sandwich.indexOf("bread") > 0) {
+		for(int i = 1; i < ingredients.length-1; i++) {
+			System.out.print(ingredients[i]);
+	}  
+	}else {
+		for(int i = 0; i < ingredients.length-1; i++) {
+			System.out.print(ingredients[i]);
+		}
 }
-
+	System.out.println();
+}
+public static void spaceSandwichSplitter(String sandwich) {
+	String[] ingredients = sandwich.split(" ");
+	String sandwichWOspace ="";
+	for(int i = 0; i < ingredients.length; i++) {
+		sandwichWOspace += ingredients[i];
+	}
+	
+	sandwichSplitter(sandwichWOspace);
+}
+}
