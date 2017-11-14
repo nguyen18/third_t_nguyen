@@ -20,6 +20,7 @@ public class FracCalc {
     			done = false;
     		} else if (answer.equals("quit")) {
     			done = true;
+    			System.out.println("see ya!");
     		} 
     		while (!answer.equals("quit") && !answer.equals("no")) {
     		System.out.println("try again. type quit or no"); 
@@ -49,11 +50,54 @@ public class FracCalc {
         
     	String[] separatedOperands = input.split(" ");
 		String operand2 = separatedOperands[2];
-		String[] operand2Split = operand2.split("_");
-		operand2Split = operand2.split("/");
+		String operand1 = separatedOperands[0];
+		String denominator;
+		String numerator;
+		String whole;
+		String denominator2;
+		String numerator2;
+		String whole2;
+		String[] operand2Split;
+		String[] operand1Split;
+		int denom;
+		int num;
+		int wholeNum;
 		
+		if(operand1.indexOf("/") < 0) {
+			numerator = "0";
+			denominator = "1";
+			whole = operand1;
+		} else if(operand1.indexOf("_") < 0) {
+			operand1Split = operand1.split("/");
+			numerator = operand1Split[0];
+			denominator = operand1Split[operand1Split.length - 1];
+			whole = "0";
+		} else {
+			whole = operand1.substring(0, operand1.indexOf("_"));
+			numerator = operand1.substring(operand1.indexOf("_")+1, operand1.indexOf("/"));
+			denominator = operand1.substring(operand1.indexOf("/")+1);
+		}
 		
-		return operand2;
+		if(operand2.indexOf("/") < 0) {
+			numerator2 = "0";
+			denominator2 = "1";
+			whole2 = operand2;
+		} else if(operand2.indexOf("_") < 0) {
+			operand2Split = operand2.split("/");
+			numerator2 = operand2Split[0];
+			denominator2 = operand2Split[operand2Split.length - 1];
+			whole2 = "0";
+		} else {
+			whole2 = operand2.substring(0, operand2.indexOf("_"));
+			numerator2 = operand2.substring(operand2.indexOf("_")+1, operand2.indexOf("/"));
+			denominator2 = operand2.substring(operand2.indexOf("/")+1);
+		}
+		
+		denom = Integer.parseInt(denominator) + Integer.parseInt(denominator2);
+		num = Integer.parseInt(numerator) + Integer.parseInt(numerator2);
+		wholeNum = Integer.parseInt(whole) + Integer.parseInt(whole2);
+		
+		return operand2 + '\n' + "whole: " + wholeNum + '\n' + "numerator: " + num + '\n' + "denominator: " + denom; 
         
     }
 
