@@ -93,11 +93,12 @@ public class FracCalc {
 			denominator2 = operand2.substring(operand2.indexOf("/")+1);
 		}
 		
+		
 		denom = Integer.parseInt(denominator) + Integer.parseInt(denominator2);
 		num = Integer.parseInt(numerator) + Integer.parseInt(numerator2);
 		wholeNum = Integer.parseInt(whole) + Integer.parseInt(whole2);
 		
-		return operand2 + '\n' + "whole: " + wholeNum + '\n' + "numerator: " + num + '\n' + "denominator: " + denom; 
+		return operand2  + " whole:" + whole2 + " numerator:" + numerator2 + " denominator:" + denominator2; 
         
     }
 
