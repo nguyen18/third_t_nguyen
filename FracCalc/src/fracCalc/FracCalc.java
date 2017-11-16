@@ -59,9 +59,6 @@ public class FracCalc {
 		String whole2;
 		String[] operand2Split;
 		String[] operand1Split;
-		int denom;
-		int num;
-		int wholeNum;
 		
 		if(operand1.indexOf("/") < 0) {
 			numerator = "0";
@@ -94,14 +91,41 @@ public class FracCalc {
 		}
 		
 		
-		denom = Integer.parseInt(denominator) + Integer.parseInt(denominator2);
-		num = Integer.parseInt(numerator) + Integer.parseInt(numerator2);
-		wholeNum = Integer.parseInt(whole) + Integer.parseInt(whole2);
+		int denom = Integer.parseInt(denominator);
+		int num = Integer.parseInt(numerator);
+		int wholeNum = Integer.parseInt(whole);
 		
-		return operand2  + " whole:" + whole2 + " numerator:" + numerator2 + " denominator:" + denominator2; 
+		int denom2 = Integer.parseInt(denominator2);
+		int num2 = Integer.parseInt(numerator2);
+		int wholeNum2 = Integer.parseInt(whole2);
+		
+		
+		
+		
+		return "whole:" + whole2 + " numerator:" + numerator2 + " denominator:" + denominator2; 
         
     }
+    
+    public static String commonDenom(int num) {
+    	
+    }
 
-    // TODO: Fill in the space below with any helper methods that you think you will need
+    public static String multiply(int num, int num2) {
+    	
+    	// TODO: Fill in the space below with any helper methods that you think you will need
+    }
+    
+    public static String subtraction(int num, int num2) {
+    	
+    }
+    
+    public static String addition(int num, int num2) {
+    	
+    }
+    
+    public static String divide(int num, int num2) {
+    	
+    }
+   
     
 }
