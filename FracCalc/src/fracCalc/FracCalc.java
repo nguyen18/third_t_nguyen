@@ -99,7 +99,10 @@ public class FracCalc {
 		int num2 = Integer.parseInt(numerator2);
 		int wholeNum2 = Integer.parseInt(whole2);
 		
+		if()
 		
+		 
+		 
 		
 		
 		return "whole:" + whole2 + " numerator:" + numerator2 + " denominator:" + denominator2; 
