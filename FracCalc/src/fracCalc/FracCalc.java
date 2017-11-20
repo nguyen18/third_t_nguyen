@@ -99,17 +99,34 @@ public class FracCalc {
 		int num2 = Integer.parseInt(numerator2);
 		int wholeNum2 = Integer.parseInt(whole2);
 		
-		if()
+		int improperTop = num;
+		int improper2Top = num2;
 		
-		 
-		 
+		if(wholeNum != 0 ) {
+			improperTop = (wholeNum * denom) + num;
+		}
+		
+		if(wholeNum2 != 0) {
+			improper2Top = (wholeNum * denom2) + num2;
+		}
+		
+		int commonDenom;
+		if(denom != denom2) {
+			commonDenom = commonDenom(denom, denom2);
+			improperTop = improperTop * commonDenom;
+			improper2Top = improper2Top * commonDenom;
+		}
+		
+		
+		
 		
 		
 		return "whole:" + whole2 + " numerator:" + numerator2 + " denominator:" + denominator2; 
         
     }
     
-    public static String commonDenom(int num) {
+    public static int commonDenom(int denom, int denom2) {
+    	
     	
     }
 
