@@ -110,40 +110,73 @@ public class FracCalc {
 			improper2Top = (wholeNum * denom2) + num2;
 		}
 		
-		int commonDenom;
+		int commonDenom = denom;
 		if(denom != denom2) {
+			if(denom != 0 || denom2 != 0) {
 			commonDenom = commonDenom(denom, denom2);
 			improperTop = improperTop * commonDenom;
 			improper2Top = improper2Top * commonDenom;
+			} else if(denom == 1 && denom2 != 1) {
+				commonDenom = denom2;
+				improperTop  
+			}
+		}
+		
+		String answer = "";
+		if(input.indexOf("+") < 0) {
+			answer = addition(improperTop, improper2Top, commonDenom);
+			
+		}
+		
+		if(input.indexOf("-") < 0) {
+			answer = subtraction(improperTop, improper2Top, commonDenom);
+		}
+		
+		if(input.indexOf("*") > 0) {
+			answer = multiply(improperTop, improper2Top, num, num2);
+		}
+		
+		if(input.lastIndexOf("/") == 2) {
+			answer = divide(improperTop, num, improper2Top, num2);
 		}
 		
 		
 		
 		
-		
-		return "whole:" + whole2 + " numerator:" + numerator2 + " denominator:" + denominator2; 
+		return answer; 
         
     }
     
     public static int commonDenom(int denom, int denom2) {
-    	
+    	return denom * denom2;
     	
     }
 
-    public static String multiply(int num, int num2) {
-    	
-    	// TODO: Fill in the space below with any helper methods that you think you will need
-    }
-    
-    public static String subtraction(int num, int num2) {
-    	
-    }
-    
-    public static String addition(int num, int num2) {
+    public static String multiply(int num, int num2, int denom, int denom2) {
+    	int multiplyTop = num * num2;
+    	int multiplyBottom = denom * denom2;
+    	String answer = multiplyTop + "/" + multiplyBottom;
+    	return answer;
     	
     }
     
-    public static String divide(int num, int num2) {
+    public static String subtraction(int num, int num2, int commonDenom) {
+    	int subtract = num + num2;
+    	String answer = subtract + "/" + commonDenom;
+    	return answer;
+    }
+    
+    public static String addition(int num, int num2, int commonDenom) {
+    	int add = num + num2;
+    	String answer = add + "/" + commonDenom;
+    	return answer;
+    }
+    
+    public static String divide(int num, int denom, int num2, int denom2) {
+    	int top = num * denom2;
+    	int bottom = denom * num2;
+    	String answer = top + "/" + bottom;
+    	return answer;
     	
     }
    
