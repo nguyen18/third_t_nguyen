@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class FracCalc {
 
+	//main method is basically the client
     public static void main(String[] args) 
     {
     	boolean done = false;
