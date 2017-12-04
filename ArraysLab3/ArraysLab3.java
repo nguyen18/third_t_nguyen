@@ -44,14 +44,12 @@ public class ArraysLab3 {
 	public static int[] remove(int[] arr, int idx) {
 		int[] newArr = new int[arr.length - 1];
 		int arrIndex = 0;
-		for(int i = 0; i <= arr.length - 1; i++) {
+		for(int i = 0; i < arr.length - 1; i++) {
 			if(arr[arrIndex] != idx) {
 				newArr[i] = arr[arrIndex];
 			} else if(arr[arrIndex] == idx){
 				newArr[i] = arr[arrIndex + 1];
 				arrIndex++;
-			} else if (i == arr.length-1) {
-				append(newArr, arr[i]);
 			}
 			arrIndex++;
 		}
