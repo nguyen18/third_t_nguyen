@@ -20,8 +20,12 @@ public class ThereAndBackAgain
 		//                   Sam has traveled 50 miles.
 		//                   Gimli has traveled 50 miles.
 		
+		Traveler[] party1 = {frodo, sam, gimli};
 		
-		
+		for (Traveler person : party1) {
+			person.travel(50);
+			System.out.println(person.getName() + " has traveled " + person.getDistanceTraveled() + " miles.");
+		}
 		
 		
 		

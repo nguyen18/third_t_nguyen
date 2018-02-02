@@ -8,9 +8,9 @@ public class Hobbit extends Traveler
 	
 	private boolean ringObsessed;
 	
-	public Hobbit(String name)
-	{
-		
+	public Hobbit(String name){
+		super(name);
+		ringObsessed = true;
 	}
 	
 	
