@@ -6,7 +6,6 @@ package fracCalc;
 import java.util.Scanner;
 
 public class FracCalc {
-
 	//main method is basically the client
     public static void main(String[] args) 
     {
@@ -53,10 +52,10 @@ public class FracCalc {
     { 
         // TODO: Implement this function to produce the solution to the input
         
-    	String[] separatedOperands = input.split(" ");
-    	int indexOfOperator = 1;
-    	int operand2Index = 2;
-    	String operand2 = separatedOperands[operand2Index];
+    String[] separatedOperands = input.split(" ");
+    int indexOfOperator = 1;
+    int operand2Index = 2;
+    String operand2 = separatedOperands[operand2Index];
 	String operand1 = separatedOperands[0];
 	String denominator;
 	String numerator;
@@ -295,7 +294,5 @@ public class FracCalc {
 		return gcf;
 		
 	}
-
-   
-    
+	
 }
