@@ -4,7 +4,7 @@ package fracCalc;
 import java.util.*;
 
 public class Fraction {
-<<<<<<< HEAD
+
 	private int whole;
 	private int num;
 	private int denom;
