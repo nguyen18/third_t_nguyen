@@ -88,9 +88,6 @@ public class ThereAndBackAgain
 		String milesTraveledPerPerson = "";
 		for (Traveler person : party) {
 			person.travel(miles);
-			if(person.getName().equals("Gandalf")) {
-				person.travel(miles*3);
-			}
 			milesTraveledPerPerson += person.getName() + " has traveled " + person.getDistanceTraveled() + " miles." + '\n';
 	}
 		return milesTraveledPerPerson;

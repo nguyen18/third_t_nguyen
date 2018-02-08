@@ -10,10 +10,6 @@ public class Dwarf extends Traveler
 	{
 		super(name);
 	}
-	
-	public void travel (int miles) {
-		super.travel(miles);
-	}
 
 
 }
