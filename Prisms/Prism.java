@@ -22,11 +22,15 @@ public abstract class Prism
 		return height;
 	}
 	
-	abstract double calcAreaOfBase();
+	public abstract double calcAreaOfBase();
 	
-	abstract double calcVolume();
+	public abstract double calcPerimeter();
 	
-	abstract double calcSA();
+	public abstract double calcVolume();
+	
+	public double calcSA() {
+		return (calcPerimeter()*height) + (2*calcAreaOfBase());
+	}
 	
 
 	

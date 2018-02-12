@@ -17,6 +17,10 @@ public class Cylinder extends Prism
 		return (radius*radius)*Math.PI;
 	}
 	
+	public double calcPerimeter() {
+		return ((2*radius)*Math.PI);
+	}
+	
 	public double calcVolume() {
 		return ((radius*radius)*Math.PI)*super.getHeight();
 	}
