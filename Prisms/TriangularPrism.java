@@ -24,17 +24,13 @@ public class TriangularPrism extends Prism
 	}
 	
 	public double calcAreaOfBase() {
-		return super.getHeight() * sideC;
+		double s = (sideA + sideB + sideC)/2;
+		return Math.sqrt(s*(s-sideA)*(s-sideB)*(s-sideC));
 	}
 	
-	public double calcVolume() {
-		double semiPerimeter = (sideA + sideB + sideC) / 2;
-		return (Math.sqrt(semiPerimeter*(semiPerimeter-sideA)*(semiPerimeter-sideB)*(semiPerimeter-sideC)))*super.getHeight();
+	public double calcPerimeter() {
+		return sideA+sideB+sideC;
 	}
 	
-	public double calcSA() {
-		double semiPerimeter = (sideA + sideB + sideC) / 2;
-		return (2*(Math.sqrt(semiPerimeter*(semiPerimeter-sideA)*(semiPerimeter-sideB)*(semiPerimeter-sideC))))+(super.getHeight()*sideA)+(super.getHeight()*sideB)+(super.getHeight()*sideC);
-	}
 	
 }

@@ -19,12 +19,9 @@ public class RectangularPrism extends Prism
 		return length * width;
 	}
 	
-	public double calcVolume() {
-		return length * width * super.getHeight();
+	public double calcPerimeter() {
+		return (2*(length+width));
 	}
 	
-	public double calcSA() {
-		return (2*((length * super.getHeight()) + (length * width) + (width * super.getHeight())));
-	}
 }
 
