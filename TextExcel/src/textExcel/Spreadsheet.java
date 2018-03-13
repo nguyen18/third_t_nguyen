@@ -4,42 +4,36 @@ package textExcel;
 
 public class Spreadsheet implements Grid
 {
+	Cell[][] sheet;
 	public Spreadsheet() {
 		
 	}
-	public Spreadsheet(Cell[][] list) {
-		Cell[][] spreadsheetContents = new Cell[20][12];
-		for(int row = 1; row <= spreadsheetContents.length; row++ ) {
-			for(int col = 1; col <= spreadsheetContents[1].length; col++) {
-				spreadsheetContents[row][col] = list [row][col];
-			}
-		}
-	}
+
 	@Override
 	public String processCommand(String command)
 	{
-		if(command.equals("getRows")) {
-			getRows();
-		}
+//		if(command.equals("getRows")) {
+//			getRows();
+//		}
+//		
+//		if(command.equals("getCols")) {
+//			getCols();
+//		}
+//		
+//		if(command.equals("")) {
+//			return "";
+//		}
+//		
+//		if(command.equals("SpreadsheetLocation row")) {
+//			return "" + getRows();
+//		}
+//		
+//		if(command.equals("SpreadsheetLocation collumn")) {
+//			return "" + getCols();
+//		}
 		
-		if(command.equals("getCols")) {
-			getCols();
-		}
 		
-		if(command.equals("")) {
-			return "";
-		}
-		
-		if(command.equals("SpreadsheetLocation row")) {
-			return "" + (getRows() - 1);
-		}
-		
-		if(command.equals("SpreadsheetLocation collumn")) {
-			return "" + (getCols() -1);
-		}
-		
-		
-		return null;
+		return "";
 	}
 
 	@Override
@@ -59,8 +53,7 @@ public class Spreadsheet implements Grid
 	@Override
 	public Cell getCell(Location loc)
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return sheet[loc.getRow()][loc.getCol()];
 	}
 
 	@Override
