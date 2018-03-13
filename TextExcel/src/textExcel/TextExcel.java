@@ -12,9 +12,14 @@ public class TextExcel
 	{
 		Scanner input = new Scanner(System.in);
 		boolean done = false;
+		Cell[][] testing = new Cell[20][12];
+		Spreadsheet test = new Spreadsheet(testing);
 		
 	    do {
-	    	
+	    	System.out.println("please input a command");
+	    	String command = input.nextLine();
+	    String result =	test.processCommand(command);
+	    System.out.println(result);
 	    	System.out.println("Are you finished inputting values? if yes, type 'quit'. if no, type 'no'");
 	    	String finished = input.nextLine();
 	    	if(finished.equals("quit")) {

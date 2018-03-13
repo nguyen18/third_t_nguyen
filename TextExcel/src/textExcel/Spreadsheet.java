@@ -4,6 +4,9 @@ package textExcel;
 
 public class Spreadsheet implements Grid
 {
+	public Spreadsheet() {
+		
+	}
 	public Spreadsheet(Cell[][] list) {
 		Cell[][] spreadsheetContents = new Cell[20][12];
 		for(int row = 1; row <= spreadsheetContents.length; row++ ) {
@@ -15,7 +18,27 @@ public class Spreadsheet implements Grid
 	@Override
 	public String processCommand(String command)
 	{
-		// TODO Auto-generated method stub
+		if(command.equals("getRows")) {
+			getRows();
+		}
+		
+		if(command.equals("getCols")) {
+			getCols();
+		}
+		
+		if(command.equals("")) {
+			return "";
+		}
+		
+		if(command.equals("SpreadsheetLocation row")) {
+			return "" + (getRows() - 1);
+		}
+		
+		if(command.equals("SpreadsheetLocation collumn")) {
+			return "" + (getCols() -1);
+		}
+		
+		
 		return null;
 	}
 
@@ -23,14 +46,14 @@ public class Spreadsheet implements Grid
 	public int getRows()
 	{
 		// TODO Auto-generated method stub
-		return 0;
+		return 20;
 	}
 
 	@Override
 	public int getCols()
 	{
 		// TODO Auto-generated method stub
-		return 0;
+		return 12;
 	}
 
 	@Override
