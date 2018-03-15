@@ -5,6 +5,7 @@ package textExcel;
 public class Spreadsheet implements Grid
 {
 	Cell[][] sheet;
+	SpreadsheetLocation loc;
 	public Spreadsheet() {
 		
 	}
@@ -12,25 +13,25 @@ public class Spreadsheet implements Grid
 	@Override
 	public String processCommand(String command)
 	{
-//		if(command.equals("getRows")) {
-//			getRows();
-//		}
-//		
-//		if(command.equals("getCols")) {
-//			getCols();
-//		}
-//		
-//		if(command.equals("")) {
-//			return "";
-//		}
-//		
-//		if(command.equals("SpreadsheetLocation row")) {
-//			return "" + getRows();
-//		}
-//		
-//		if(command.equals("SpreadsheetLocation collumn")) {
-//			return "" + getCols();
-//		}
+		if(command.equals("getRows")) {
+			getRows();
+		}
+		
+		if(command.equals("getCols")) {
+			getCols();
+		}
+		
+		if(command.equals("")) {
+			return "";
+		}
+		
+		if(command.equals("SpreadsheetLocation row")) {
+			return "" + loc.getRow();
+		}
+		
+		if(command.equals("SpreadsheetLocation collumn")) {
+			return "" + loc.getCol();
+		}
 		
 		
 		return "";
@@ -39,14 +40,12 @@ public class Spreadsheet implements Grid
 	@Override
 	public int getRows()
 	{
-		// TODO Auto-generated method stub
 		return 20;
 	}
 
 	@Override
 	public int getCols()
 	{
-		// TODO Auto-generated method stub
 		return 12;
 	}
 

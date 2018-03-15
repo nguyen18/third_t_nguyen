@@ -4,13 +4,13 @@ package textExcel;
 
 public class SpreadsheetLocation implements Location
 {
-	private int getRows = 0;
-   	private int getCols = 0;
+	private int getRows;
+   	private int getCols;
     	
     public SpreadsheetLocation(String cellName)
     {
-    	getRows = Integer.parseInt(cellName) -1;
-    	getCols = Character.toUpperCase(cellName.charAt(0))-'A';
+    	getRows = Integer.parseInt(cellName.substring(1)) -1;
+    	getCols = (Character.toUpperCase(cellName.charAt(0)))-'A';
     		
     }
 

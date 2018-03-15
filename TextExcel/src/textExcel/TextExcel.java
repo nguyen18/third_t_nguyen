@@ -10,24 +10,25 @@ public class TextExcel
 
 	public static void main(String[] args)
 	{
-//		Scanner input = new Scanner(System.in);
-//		boolean done = false;
-//		Spreadsheet test = new Spreadsheet();
-//		
-//	    do {
-//	    	
-//	    	System.out.println("Are you finished inputting values? if yes, type 'quit'. if no, type 'no'");
-//	    	String finished = input.nextLine();
-//	    	if(finished.equals("quit")) {
-//	    		done = true;
-//	    	}
-//	    	else if (finished.equals("no")) {
-//	    		done = false;
-//	    	}
-//	    	else while (!finished.equals("quit") && !finished.equals("no")) {
-//	    		System.out.println("error. please type yes or no");
-//	    		finished = input.nextLine();
-//	    	}
-//	    } while (!done);
-//	}
+		Scanner input = new Scanner(System.in);
+		boolean done = false;
+		Spreadsheet test = new Spreadsheet();
+		
+	    do {
+	    	
+	    	System.out.println("Are you finished inputting values? if yes, type 'quit'. if no, type 'no'");
+	    	String finished = input.nextLine();
+	    	if(finished.equals("quit")) {
+	    		done = true;
+	    	}
+	    	else if (finished.equals("no")) {
+	    		done = false;
+	    	}
+	    	else while (!finished.equals("quit") && !finished.equals("no")) {
+	    		System.out.println("error. please type quit or no");
+	    		finished = input.nextLine();
+	    	}
+	    } while (!done);
+	    System.out.println("Thank you!");
+	}
 }

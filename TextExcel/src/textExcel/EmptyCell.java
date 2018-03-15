@@ -2,9 +2,9 @@ package textExcel;
 
 public class EmptyCell implements Cell
 {
-	private double length;
+
 	public String abbreviatedCellText() { // text for spreadsheet cell display, must be exactly length 10
-		length = 10;
+
 		return null;
 	}
 	
