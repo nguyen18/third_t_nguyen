@@ -18,16 +18,18 @@ public class TextExcel
 	    	
 	    	System.out.println("Are you finished inputting values? if yes, type 'quit'. if no, type 'no'");
 	    	String finished = input.nextLine();
+
+	    		while (!finished.equals("quit") && !finished.equals("no")) {
+	    		System.out.println("error. please type quit or no");
+	    		finished = input.nextLine();
+	    	}
 	    	if(finished.equals("quit")) {
 	    		done = true;
 	    	}
 	    	else if (finished.equals("no")) {
 	    		done = false;
 	    	}
-	    	else while (!finished.equals("quit") && !finished.equals("no")) {
-	    		System.out.println("error. please type quit or no");
-	    		finished = input.nextLine();
-	    	}
+	    
 	    } while (!done);
 	    System.out.println("Thank you!");
 	}
