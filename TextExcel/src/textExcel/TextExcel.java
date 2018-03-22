@@ -15,7 +15,7 @@ public class TextExcel
 		Spreadsheet test = new Spreadsheet();
 		
 	    do {
-	    	
+	    	//quit loop
 	    	System.out.println("Are you finished inputting values? if yes, type 'quit'. if no, type 'no'");
 	    	String finished = input.nextLine();
 
