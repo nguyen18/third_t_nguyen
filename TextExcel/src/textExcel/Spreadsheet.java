@@ -4,8 +4,9 @@ package textExcel;
 
 public class Spreadsheet implements Grid
 {
-	Cell[][] sheet;
-	SpreadsheetLocation loc;
+	private Cell[][] sheet;
+	private SpreadsheetLocation loc;
+	private String grid;
 	public Spreadsheet() {
 		
 	}
@@ -16,7 +17,7 @@ public class Spreadsheet implements Grid
 		if(command.equals("getRows")) {
 			getRows();
 		}
-		
+		8888
 		if(command.equals("getCols")) {
 			getCols();
 		}
@@ -58,8 +59,7 @@ public class Spreadsheet implements Grid
 	@Override
 	public String getGridText()
 	{
-		// TODO Auto-generated method stub
-		return null;
+		
 	}
 
 }
