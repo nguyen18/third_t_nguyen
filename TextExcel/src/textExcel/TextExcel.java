@@ -13,6 +13,7 @@ public class TextExcel
 		Scanner input = new Scanner(System.in);
 		boolean done = false;
 		Spreadsheet test = new Spreadsheet();
+		System.out.print(test.getGridText());
 		
 	    do {
 	    	System.out.print("Input your first value:");

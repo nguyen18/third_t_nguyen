@@ -7,6 +7,7 @@ public class Spreadsheet implements Grid
 	private Cell[][] sheet;
 	private SpreadsheetLocation loc;
 	private String grid;
+	
 	public Spreadsheet() {
 		
 	}
@@ -14,10 +15,11 @@ public class Spreadsheet implements Grid
 	@Override
 	public String processCommand(String command)
 	{
-		if(command.equals("getRows")) {
+		command = command.toUpperCase();
+		
+		if(command.equals(command)) {
 			getRows();
 		}
-		8888
 		if(command.equals("getCols")) {
 			getCols();
 		}
@@ -60,6 +62,28 @@ public class Spreadsheet implements Grid
 	public String getGridText()
 	{
 		
+		grid = "   |";
+		for(char col = 'A'; col <= 'L'; col++) {
+			grid += col + "         |";
+		}
+		
+		grid += '\n';
+	
+		for(int row = 1; row <= 20; row++) {
+			if( row < 10 ) {
+				grid += row + "  |";
+			}
+			else {
+				grid += row + " |";
+			}
+			grid += "          |          |          |          |          |          |          |          |          |          |          |          |";
+			grid += '\n';
+		}
+		
+		return grid;
 	}
+	
 
 }
+
+
