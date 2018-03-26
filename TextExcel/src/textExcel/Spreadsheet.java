@@ -5,35 +5,38 @@ package textExcel;
 public class Spreadsheet implements Grid
 {
 	private Cell[][] sheet;
+	private TextCell cell;
 	private SpreadsheetLocation loc;
 	private String grid;
 	
 	public Spreadsheet() {
-		
+		sheet = new Cell[20][12];
+		for(int row = 1; row < sheet.length; row++) {
+			for(int col = 1; col < sheet[0].length; col++) {
+				sheet[row][col] = 
+			}
+		}
 	}
 
 	@Override
 	public String processCommand(String command)
 	{
 		command = command.toUpperCase();
+		cell = new TextCell(command);
 		
-		if(command.equals(command)) {
-			getRows();
+		if(command.indexOf(command) > 0) {
+			return cell.fullTextCell();
 		}
-		if(command.equals("getCols")) {
-			getCols();
-		}
-		
-		if(command.equals("")) {
-			return "";
+		if(command.indexOf("=") > 0) {
+			return cell.abbreviatedTextCell();
 		}
 		
-		if(command.equals("SpreadsheetLocation row")) {
-			return "" + loc.getRow();
+		if(command.indexOf("clear") >= 0) {
+			return getGridText();
 		}
 		
-		if(command.equals("SpreadsheetLocation collumn")) {
-			return "" + loc.getCol();
+		if(command.equals("clear " + command)) {
+			return getGridText();
 		}
 		
 		
@@ -64,6 +67,7 @@ public class Spreadsheet implements Grid
 		
 		grid = "   |";
 		for(char col = 'A'; col <= 'L'; col++) {
+			
 			grid += col + "         |";
 		}
 		
@@ -76,7 +80,9 @@ public class Spreadsheet implements Grid
 			else {
 				grid += row + " |";
 			}
-			grid += "          |          |          |          |          |          |          |          |          |          |          |          |";
+			for(int space = 1; space <= 12; space++) {
+				grid += sheet[row][space];
+			}
 			grid += '\n';
 		}
 		
