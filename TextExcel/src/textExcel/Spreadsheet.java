@@ -6,41 +6,65 @@ public class Spreadsheet implements Grid
 {
 	private Cell[][] sheet;
 	private TextCell cell;
-	private SpreadsheetLocation loc;
 	private String grid;
 	
 	public Spreadsheet() {
 		sheet = new Cell[20][12];
-		for(int row = 1; row < sheet.length; row++) {
-			for(int col = 1; col < sheet[0].length; col++) {
-				sheet[row][col] = 
+		for(int row = 0; row < 20; row++) {
+			for(int col = 0; col < 12; col++) {
+				sheet[row][col] = new EmptyCell();
 			}
 		}
 	}
 
 	@Override
-	public String processCommand(String command)
+	public String processCommand(String input)
 	{
-		command = command.toUpperCase();
-		cell = new TextCell(command);
+		input = input.toLowerCase();
+		String[] command = input.split(" ",3);
 		
-		if(command.indexOf(command) > 0) {
-			return cell.fullTextCell();
-		}
-		if(command.indexOf("=") > 0) {
-			return cell.abbreviatedTextCell();
-		}
-		
-		if(command.indexOf("clear") >= 0) {
+		if(input.equals("")) {
 			return getGridText();
 		}
 		
-		if(command.equals("clear " + command)) {
+		if(command[0].equals("empty")) {
+			command[0] = "clear";
+		}
+		
+		if(command[0].equals("clear")) {
+			clearCell(input);
 			return getGridText();
 		}
 		
-		
-		return "";
+		else if(input.length() > 2) {
+			setCell(command);
+			return getGridText();
+		}
+		else {
+			SpreadsheetLocation inspect = new SpreadsheetLocation(command[0]);
+			return getCell(inspect).fullCellText();
+		}
+	}
+	
+	public void setCell(String[] input) {
+		String value = input[2];
+		SpreadsheetLocation loc = new SpreadsheetLocation(input[0]);
+		sheet[loc.getRow()][loc.getCol()] = new TextCell(value);
+	}
+	
+	public void clearCell(String input) {
+		String cellName = input.substring(input.indexOf("clear") + 6);
+		if(!(cellName.length() <1)) {
+			SpreadsheetLocation loc = new SpreadsheetLocation(cellName);
+			sheet[loc.getRow()][loc.getCol()] = new EmptyCell();
+		}
+		else {
+			for(int row = 0; row < 20; row++) {
+				for(int col = 0; col < 12; col++) {
+					sheet[row][col] = new EmptyCell();
+		}
+			}
+		}
 	}
 
 	@Override
@@ -73,15 +97,16 @@ public class Spreadsheet implements Grid
 		
 		grid += '\n';
 	
-		for(int row = 1; row <= 20; row++) {
+		for(int row = 0; row < 20; row++) {
 			if( row < 10 ) {
 				grid += row + "  |";
 			}
 			else {
 				grid += row + " |";
 			}
-			for(int space = 1; space <= 12; space++) {
-				grid += sheet[row][space];
+			for(int space = 0; space < 12; space++) {
+				
+				grid += sheet[row][space].abbreviatedCellText() + "|";
 			}
 			grid += '\n';
 		}

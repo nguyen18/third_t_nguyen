@@ -1,18 +1,18 @@
 package textExcel;
 
-public class TextCell {
+public class TextCell implements Cell{
 	private String text;
 	
 	public TextCell(String text) {
 		this.text = text;
 	}
-	public String fullTextCell() {
-		
+	public String fullCellText() {
 		return "\"" + text + "\"";
 	}
 	
-	public String abbreviatedTextCell() {
-		int lastQuote = text.lastIndexOf("\"");
-		return text.substring(1, lastQuote);
+	public String abbreviatedCellText() {
+		String spaces = "          ";
+		text = text + spaces;
+		return text.substring(0,10);
 	}
 }

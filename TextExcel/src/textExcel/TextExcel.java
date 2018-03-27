@@ -13,12 +13,9 @@ public class TextExcel
 		Scanner input = new Scanner(System.in);
 		boolean done = false;
 		Spreadsheet test = new Spreadsheet();
-		System.out.print(test.getGridText());
+		System.out.print(test.processCommand(""));
 		
 	    do {
-	    	System.out.print("Input your first value:");
-	    	String value = input.nextLine();
-	    	TextCell entry = new TextCell(value);
 	    	//quit loop
 	    	System.out.println("Are you finished inputting values? if yes, type 'quit'. if no, type 'no'");
 	    	String finished = input.nextLine();
