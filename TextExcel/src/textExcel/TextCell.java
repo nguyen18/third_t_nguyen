@@ -12,7 +12,7 @@ public class TextCell implements Cell{
 	
 	public String abbreviatedCellText() {
 		String spaces = "          ";
-		text = text + spaces;
-		return text.substring(0,10);
+		String editedText = text + spaces;
+		return editedText.substring(0,10);
 	}
 }

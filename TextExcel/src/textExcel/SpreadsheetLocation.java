@@ -9,8 +9,8 @@ public class SpreadsheetLocation implements Location
     	
     public SpreadsheetLocation(String cellName)
     {
-    	rows = Integer.parseInt(cellName.substring(1));
-    	cols = Character.toUpperCase(cellName.charAt(0));
+    		rows = Integer.parseInt(cellName.substring(1));
+    		cols = cellName.charAt(0);
     		
     }
 
@@ -18,7 +18,7 @@ public class SpreadsheetLocation implements Location
     public int getRow()
     {
         // TODO Auto-generated method stub
-        return rows;
+        return rows-1;
     }
 
     @Override
