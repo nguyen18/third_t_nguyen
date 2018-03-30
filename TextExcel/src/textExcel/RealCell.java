@@ -8,15 +8,17 @@ public class RealCell implements Cell{
 		}
 		
 		public String fullCellText() {
-
+			return "\"" + text + "\"";
 		}
 		
 		public String abbreviatedCellText() {
-
+			String spaces = "          ";
+			String editedText = text + spaces;
+			return editedText.substring(0,10);
 		}
 		
-		public String getDoubleValue() {
-			
+		public double getDoubleValue() {
+			return Double.parseDouble(text);
 		}
 	
 }

@@ -42,10 +42,20 @@ public class Spreadsheet implements Grid
 	}
 	
 	public void setCell(String[] input) {
+		String testing = input[2];
 		SpreadsheetLocation placeholder = new SpreadsheetLocation(input[0].toUpperCase());
 		if (input.length > 1){ //if a text cell, take the string between the quotes and fill the array element with a text cell
 			String words = input[2].substring(1, (input[2].length())-1);
 			sheet [placeholder.getRow()] [placeholder.getCol()] = new TextCell(words);
+		}
+		else if (testing.substring(testing.length()-1).equals("%")){ //if a percent cell
+			sheet [placeholder.getCol()] [placeholder.getRow()] = new PercentCell (testing);	
+		}
+		else if (input[2].substring(input[2].length()-1).equals(")")){ //if a formula cell
+			sheet [placeholder.getCol()] [placeholder.getRow()] = new FormulaCell (testing, sheet);	
+		}
+		else { // if a value cell
+			sheet [placeholder.getCol()] [placeholder.getRow()] = new ValueCell (testing);	
 		}
 	}
 	
