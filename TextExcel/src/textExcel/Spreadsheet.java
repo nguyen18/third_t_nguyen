@@ -44,7 +44,7 @@ public class Spreadsheet implements Grid
 	public void setCell(String[] input) {
 		String testing = input[2];
 		SpreadsheetLocation placeholder = new SpreadsheetLocation(input[0].toUpperCase());
-		if (testing.charAt(0) == 34){ //if a text cell, take the string between the quotes and fill the array element with a text cell
+		if (testing.indexOf("\"") == 0){ //if a text cell, take the string between the quotes and fill the array element with a text cell
 			String words = input[2].substring(1, (input[2].length())-1);
 			sheet [placeholder.getRow()] [placeholder.getCol()] = new TextCell(words);
 		}
