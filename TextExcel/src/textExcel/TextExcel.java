@@ -18,14 +18,16 @@ public class TextExcel
 		String hello = "hello";
 //		TestsALL.Helper th = new TestsALL.Helper();
 //		System.out.println(th.getText());
-		String greeting = "Hello, world!";
-		test.processCommand("L20 = \"" + greeting + "\"");
-		System.out.print(test.processCommand("L20"));
+//		String greeting = "Hello, world!";
+//		test.processCommand("L20 = \"" + greeting + "\"");
+//		System.out.print(test.processCommand("L20"));
+		String precisePerc = "7.87878%";
+        System.out.print(test.processCommand("A4 = " + precisePerc));
 //      Cell greetingCell = test.getCell(new TestLocation(19,11));
 //
 //      System.out.print(greetingCell.fullCellText());
 //		System.out.print(test.processCommand("A1"));
-//		System.out.print(test.processCommand("A1 = \"first\""));
+//		System.out.print(test.processCommand("A1 = \"8.00222%\""));
 //		System.out.print(test.processCommand(""));
 //		System.out.print(test.getGridText());
 		
