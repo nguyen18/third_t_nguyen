@@ -23,7 +23,6 @@ public class Spreadsheet implements Grid
 		}
 		
 		String[] command = input.split(" ", 3);
-		String cell = command[0].toUpperCase();
 		
 		if(command[0].toLowerCase().equals("clear")) {
 			clearCell(command);
