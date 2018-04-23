@@ -22,7 +22,12 @@ public class TextExcel
 //		test.processCommand("L20 = \"" + greeting + "\"");
 //		System.out.print(test.processCommand("L20"));
 		String precisePerc = "7.87878%";
-        System.out.print(test.processCommand("A4 = " + precisePerc));
+       System.out.println( test.processCommand("F3 = ( 1 * 1)"));
+
+//        System.out.print(test.processCommand("A2 = ( 14 - 7 + -4 - 3 + 3 * A1 )"));
+        String eh = "( 2 * 2 * 3 )";
+        Double num = Double.parseDouble(eh.substring(6,7));
+        System.out.println(num);
 //      Cell greetingCell = test.getCell(new TestLocation(19,11));
 //
 //      System.out.print(greetingCell.fullCellText());
