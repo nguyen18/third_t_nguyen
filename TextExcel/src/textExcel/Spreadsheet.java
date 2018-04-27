@@ -14,6 +14,15 @@ public class Spreadsheet implements Grid
 			}
 		}
 	}
+	
+	public Spreadsheet(Cell[][] textexcel) {
+		sheet = new Cell[20][12];
+		for(int row = 0; row < 20; row++) {
+			for(int col = 0; col < 12; col++) {
+				sheet[row][col] = textexcel[row][col];
+			}
+		}
+	}
 
 	@Override
 	public String processCommand(String input)
@@ -23,6 +32,10 @@ public class Spreadsheet implements Grid
 		}
 		
 		String[] command = input.split(" ", 3);
+		
+		if(command[0].toLowerCase().equals("update")) {
+			return getGridText();
+		} else
 		
 		if(command[0].toLowerCase().equals("clear")) {
 			clearCell(command);
@@ -36,6 +49,7 @@ public class Spreadsheet implements Grid
 		else {
 			SpreadsheetLocation inspect = new SpreadsheetLocation(command[0].toUpperCase());
 			return getCell(inspect).fullCellText();
+			
 		}
 		
 	}
@@ -53,7 +67,8 @@ public class Spreadsheet implements Grid
 		}
 		
 		else if(testing.substring(testing.length()-1).equals(")")) {
-			sheet [placeholder.getRow()] [placeholder.getCol()] = new FormulaCell(testing, sheet);
+			Spreadsheet excel = new Spreadsheet(sheet);
+			sheet [placeholder.getRow()] [placeholder.getCol()] = new FormulaCell(testing, excel);
 		}
 		
 		else {
