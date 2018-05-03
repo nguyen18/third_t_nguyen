@@ -3,14 +3,16 @@ package textExcel;
 //AP Compsci 1st period
 public class FormulaCell extends RealCell implements Cell{
 	private Spreadsheet sheet;
+	private String orig;
 	
 	public FormulaCell(String text, Spreadsheet sheet) {
-		super(text);
+		super(text.toUpperCase());
 		this.sheet = sheet;
+		this.orig = text;
 	}
 	
 	public String fullCellText() {
-		return super.fullCellText();
+		return orig;
 	}
 	
 	public String abbreviatedCellText() {
@@ -44,13 +46,13 @@ public class FormulaCell extends RealCell implements Cell{
 		return false;
 	}
 	
-	public double avg(String range) {
-		String[] cell = range.split("-");
-		String[] letter1split = cell[0].split(" ");
+	public double avg(String cellNames) {
+		String[] cells = cellNames.split("-");
+		String[] letter1split = cells[0].split(" ");
 		char letter1 = letter1split[2].charAt(0);
-		char letter2 = cell[1].charAt(0);
+		char letter2 = cells[1].charAt(0);
 		int num1 = Integer.parseInt(letter1split[2].substring(1));
-		int num2 = Integer.parseInt(cell[1].substring(1, cell[1].indexOf(" ")));
+		int num2 = Integer.parseInt(cells[1].substring(1, cells[1].indexOf(" ")));
 		double sum = 0;
 		int divisor = 0;
 		
@@ -66,13 +68,13 @@ public class FormulaCell extends RealCell implements Cell{
 
 	}
 
-	public double sum(String range) {
-		String[] cell = range.split("-");
-		String[] letter1split = cell[0].split(" ");
+	public double sum(String cellNames) {
+		String[] cells = cellNames.split("-");
+		String[] letter1split = cells[0].split(" ");
 		char letter1 = letter1split[2].charAt(0);
-		char letter2 = cell[1].charAt(0);
+		char letter2 = cells[1].charAt(0);
 		int num1 = Integer.parseInt(letter1split[2].substring(1));
-		int num2 = Integer.parseInt(cell[1].substring(1, cell[1].indexOf(" ")));
+		int num2 = Integer.parseInt(cells[1].substring(1, cells[1].indexOf(" ")));
 		double sum = 0.0;
 		
 		for(char letter = letter1; letter <= letter2; letter++) {

@@ -1,18 +1,17 @@
 package textExcel;
 
-public class TextCell implements Cell{
-	private String text;
+public class TextCell extends RealCell implements Cell{
 	
 	public TextCell(String text) {
-		this.text = text;
+		super(text);
 	}
 	public String fullCellText() {
-		return "\"" + text + "\"";
+		return "\"" + super.fullCellText() + "\"";
 	}
 	
 	public String abbreviatedCellText() {
 		String spaces = "          ";
-		String editedText = text + spaces;
+		String editedText = super.fullCellText() + spaces;
 		return editedText.substring(0,10);
 	}
 }

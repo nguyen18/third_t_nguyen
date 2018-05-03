@@ -54,7 +54,7 @@ public class Spreadsheet implements Grid
 	private void setCell(String[] input) {
 		String testing = input[2].toUpperCase();
 		SpreadsheetLocation placeholder = new SpreadsheetLocation(input[0].toUpperCase());
-		if (testing.indexOf("\"") == 0){ //if a text cell, take the string between the quotes and fill the array element with a text cell
+		if (testing.indexOf("\"") == 0){
 			String words = input[2].substring(1, (input[2].length())-1);
 			sheet [placeholder.getRow()] [placeholder.getCol()] = new TextCell(words);
 		}
@@ -64,8 +64,7 @@ public class Spreadsheet implements Grid
 		}
 		
 		else if(testing.substring(testing.length()-1).equals(")")) {
-			Spreadsheet excel = new Spreadsheet(sheet);
-			sheet [placeholder.getRow()] [placeholder.getCol()] = new FormulaCell(testing, excel);
+			sheet [placeholder.getRow()] [placeholder.getCol()] = new FormulaCell(input[2], this);
 		}
 		
 		else {
@@ -127,6 +126,7 @@ public class Spreadsheet implements Grid
 			}
 			side = side+1;
 			for(int col = 0; col < 12; col++) {
+				
 				grid += sheet[row][col].abbreviatedCellText() + "|";
 			}
 			grid += '\n';
