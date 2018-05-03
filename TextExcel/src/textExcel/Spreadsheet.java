@@ -5,9 +5,10 @@ import java.util.*;
 public class Spreadsheet implements Grid
 {
 	private Cell[][] sheet;
+	private String input;
 	
 	public Spreadsheet() {
-		sheet = new Cell[20][12];
+		sheet = new RealCell[20][12];
 		for(int row = 0; row < 20; row++) {
 			for(int col = 0; col < 12; col++) {
 				sheet[row][col] = new EmptyCell();
@@ -27,34 +28,29 @@ public class Spreadsheet implements Grid
 	@Override
 	public String processCommand(String input)
 	{
+		this.input = input;
 		if(input.equals("")) {
 			return "";
-		}
+		} 
 		
 		String[] command = input.split(" ", 3);
 		
-		if(command[0].toLowerCase().equals("update")) {
-			return getGridText();
-		} else
-		
 		if(command[0].toLowerCase().equals("clear")) {
 			clearCell(command);
-			return getGridText();
 		}
 		
 		else if(command.length > 2) {
 			setCell(command);
-			return getGridText();
 		}
-		else {
+		else if (input.length() <= 3){
 			SpreadsheetLocation inspect = new SpreadsheetLocation(command[0].toUpperCase());
 			return getCell(inspect).fullCellText();
 			
-		}
-		
+		} 
+		return getGridText();
 	}
 	
-	public void setCell(String[] input) {
+	private void setCell(String[] input) {
 		String testing = input[2].toUpperCase();
 		SpreadsheetLocation placeholder = new SpreadsheetLocation(input[0].toUpperCase());
 		if (testing.indexOf("\"") == 0){ //if a text cell, take the string between the quotes and fill the array element with a text cell
@@ -77,7 +73,7 @@ public class Spreadsheet implements Grid
 
 	}
 	
-	public void clearCell(String[] input) {
+	private void clearCell(String[] input) {
 		if (input.length > 1){ //if "clear" all
 			SpreadsheetLocation placeholder = new SpreadsheetLocation(input[1].toUpperCase());
 			sheet[placeholder.getRow()][placeholder.getCol()] = new EmptyCell (); //make everything an empty cell
@@ -130,7 +126,6 @@ public class Spreadsheet implements Grid
 			}
 			side = side+1;
 			for(int col = 0; col < 12; col++) {
-				
 				grid += sheet[row][col].abbreviatedCellText() + "|";
 			}
 			grid += '\n';

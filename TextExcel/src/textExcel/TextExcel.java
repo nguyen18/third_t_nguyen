@@ -22,29 +22,28 @@ public class TextExcel
 //		TestsALL.Helper th = new TestsALL.Helper();
 //		System.out.println(th.getText());
 //		String greeting = "Hello, world!";
-        grid.processCommand("A1 = ( 1 + 2 + 3 + 4 )"); // 10, then 9
-        grid.processCommand("A2 = ( 1 * 2 * 3 * 4 )"); // 24
-        grid.processCommand("B1 = ( Sum a1-a2 )"); // 34, then 33
-        grid.processCommand("B2 = ( avG a1-A2 )"); // 17, then 16.5
-        grid.processCommand("C1 = ( sum A1-B2 )"); // 85, then 82.5
-        grid.processCommand("C2 = ( avg a1-b2 )"); // 21.25, then 20.625
-        grid.processCommand("d1 = ( c1 / 5.0 )"); // 17, then 16.5
-        grid.processCommand("d2 = ( c2 + 1.75 + a1 )"); // 33, then 31.375
-        grid.processCommand("e2 = 18");
-        grid.processCommand("d3 = 29");
-        grid.processCommand("A20 = ( SUM A1-D2 )"); // 241.25, then 233.5
-        grid.processCommand("B20 = ( AVG A1-D2 )"); // 30.15625, then 29.1875
-        grid.processCommand("a1 = 9");
-        grid.processCommand("B1 = ( Sum a1-a2 )"); // 34, then 33
-        grid.processCommand("B2 = ( avG a1-A2 )"); // 17, then 16.5
-        grid.processCommand("C1 = ( sum A1-B2 )"); // 85, then 82.5
-        grid.processCommand("C2 = ( avg a1-b2 )"); // 21.25, then 20.625
-        grid.processCommand("d1 = ( c1 / 5.0 )"); // 17, then 16.5
-        grid.processCommand("d2 = ( c2 + 1.75 + a1 )"); // 33, then 31.375
-        grid.processCommand("e2 = 18");
-        grid.processCommand("d3 = 29");
-        grid.processCommand("A20 = ( SUM A1-D2 )"); // 241.25, then 233.5
-        grid.processCommand("B20 = ( AVG A1-D2 )");
+        Helper helper = new Helper();
+        for (int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                String cellId = "" + (char)('A' + j) + (i + 1);
+                grid.processCommand(cellId + " = " + (i * j));
+                helper.setItem(i, j, (i * j) + ".0");
+            }
+        }
+        String first = grid.processCommand("G8 = ( sum A1-E4 )");
+        helper.setItem(7, 6, "60.0");
+        assertEquals("grid with sum", helper.getText(), first);
+        String second = grid.processCommand("G9 = ( avg A1-E4 )");
+        helper.setItem(8, 6, "3.0");
+        assertEquals("grid with sum and avg", helper.getText(), second);
+        String updated = grid.processCommand("E4 = ( sum A4-D4 )");
+        helper.setItem(3, 4, "18.0");
+        helper.setItem(7, 6, "66.0");
+        helper.setItem(8, 6, "3.3");
+        assertEquals("updated grid", helper.getText(), updated);
+// 
          System.out.print(grid.processCommand("update"));
 //        grid.processCommand("A1 = -9");
 //        grid.processCommand("A2 = ( 14 - 7 + -4 - 3 + 3 * A1 )");

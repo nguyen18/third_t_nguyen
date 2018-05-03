@@ -1,27 +1,20 @@
 package textExcel;
 
-public class ValueCell extends RealCell{
-	private String words;
+public class ValueCell extends RealCell implements  Cell{
 	
 	public ValueCell(String text) {
 		super(text);
-		words = text;
 	}
 	
 	public String fullCellText() {
-		if (words.indexOf(".")<0){
-			return words;
-		}
-		return getValue()+"";
+		return super.fullCellText();
 	}
 	
 	public String abbreviatedCellText() {
-		String spaces = "          ";
-		String editedText = getValue() + spaces;
-		return editedText.substring(0,10);
+		return super.abbreviatedCellText();
 	}
 	
-	public double getValue() {
+	public double getDoubleValue() {
 		return super.getDoubleValue();
 	}
 

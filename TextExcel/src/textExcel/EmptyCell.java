@@ -1,8 +1,9 @@
 package textExcel;
 
-public class EmptyCell implements Cell
+public class EmptyCell extends RealCell implements Cell
 {
 	public EmptyCell() {
+		super("");
 	}
 
 	public String abbreviatedCellText() { // text for spreadsheet cell display, must be exactly length 10

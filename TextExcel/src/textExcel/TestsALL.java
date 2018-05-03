@@ -1329,12 +1329,16 @@ public class TestsALL
             assertEquals("sum nested", 241.25, resultSum, 1e-6);
             assertEquals("avg nested", 30.15625, resultAvg, 1e-6);
             grid.processCommand("a1 = 9");
+            //so process command should reset all cell values
             cellSum = grid.getCell(new TestLocation(19, 0));
             cellAvg = grid.getCell(new TestLocation(19, 1));
             resultSum = Double.parseDouble(cellSum.abbreviatedCellText());
             resultAvg = Double.parseDouble(cellAvg.abbreviatedCellText());
             assertEquals("updated sum nested", 233.5, resultSum, 1e-6);
+            //the nature of the test is that it ran the a1 = 9, and is now testing the result against 233.5
             assertEquals("updated avg nested", 29.1875, resultAvg, 1e-6);
+            //is the point of this you trying to pass the test? like is the problem within the code, and not just being able to run the next test command?
+            	//	otherwise, i'm not sure bc i never actually went into the tests and ran them piece by piece 
         }
     }
     

@@ -13,7 +13,7 @@ public class FormulaCell extends RealCell implements Cell{
 	}
 	
 	public String abbreviatedCellText() {
-		return super.abbreviatedCellText();
+		return (getDoubleValue() + "          ").substring(0, 10);
 	}
 
 	public double value(double num1, double num2, String operand) {
