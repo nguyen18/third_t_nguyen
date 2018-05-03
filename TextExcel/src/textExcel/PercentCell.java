@@ -6,7 +6,7 @@ public class PercentCell extends RealCell{
 		super(text);
 	}
 	public String fullCellText() {
-		return (getDoubleValue() / 100)+"";
+		return (getDoubleValue() / 100)+""; //returns percent in decimal format
 	}
 	
 	public String abbreviatedCellText() {
@@ -15,11 +15,11 @@ public class PercentCell extends RealCell{
 			abrv = super.fullCellText().substring(0, super.fullCellText().indexOf("."));
 		}
 		abrv += "%         ";
-		return abrv.substring(0,10);
+		return abrv.substring(0,10); //returns percent in decimal format to fit display
 	}
 	
 	public double getDoubleValue() {
 		String removePercent = super.fullCellText().substring(0, super.fullCellText().length()-1);
-		return Double.parseDouble(removePercent);
+		return Double.parseDouble(removePercent); //removes the percent and convert percent from string to double
 	}
 }

@@ -9,22 +9,22 @@ public class SpreadsheetLocation implements Location
     	
     public SpreadsheetLocation(String cellName)
     {
-    		rows = Integer.parseInt(cellName.substring(1));
-    		cols = cellName.charAt(0);
+    		rows = Integer.parseInt(cellName.substring(1)); //parses number in cell name
+    		cols = cellName.charAt(0); //parses letter in cell name
     		
     }
 
     @Override
     public int getRow()
     {        // TODO Auto-generated method stub
-        return rows-1;
+        return rows-1; //return rows 
     }
 
     @Override
     public int getCol()
     {
         // TODO Auto-generated method stub
-        return cols-'A';
+        return cols-'A'; //returns col
     }
     
 

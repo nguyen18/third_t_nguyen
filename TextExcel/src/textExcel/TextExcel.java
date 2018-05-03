@@ -18,13 +18,6 @@ public class TextExcel
 	{
 		Scanner input = new Scanner(System.in);
 		boolean done = false;
-		Grid grid = new Spreadsheet();
-		  grid.processCommand("A1 = ( 1 + 2 + 3 + 4 )"); // 10, then 9
-          grid.processCommand("A2 = ( 1 * 2 * 3 * 4 )"); // 24
-          grid.processCommand("B1 = ( Sum a1-a2 )"); // 34, then 33
-          grid.processCommand("a1 = 9");
-          System.out.print(grid.processCommand("update"));
-          System.out.print(grid.processCommand("update"));
           
 		
 	    do {

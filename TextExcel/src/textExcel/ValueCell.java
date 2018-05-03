@@ -8,15 +8,15 @@ public class ValueCell extends RealCell implements  Cell{
 	}
 	
 	public String fullCellText() {
-		return super.fullCellText();
+		return super.fullCellText(); //returns whole text
 	}
 	
 	public String abbreviatedCellText() {
-		return super.abbreviatedCellText();
+		return super.abbreviatedCellText(); //fits display
 	}
 	
 	public double getDoubleValue() {
-		return super.getDoubleValue();
+		return super.getDoubleValue(); //returns string converted to double if applicable
 	}
 
 }

@@ -8,15 +8,15 @@ public class RealCell implements Cell{
 		}
 		
 		public String fullCellText() {
-			return  text;
+			return  text; //returns full text
 		}
 		
 		public String abbreviatedCellText() {
-			return (getDoubleValue() + "          ").substring(0, 10);
+			return (getDoubleValue() + "          ").substring(0, 10); //fits display
 		}
 		
 		public double getDoubleValue() {
-			return Double.parseDouble(text);
+			return Double.parseDouble(text); //converts text from string to double
 		}
 	
 }

@@ -6,21 +6,21 @@ public class FormulaCell extends RealCell implements Cell{
 	private String orig;
 	
 	public FormulaCell(String text, Spreadsheet sheet) {
-		super(text.toUpperCase());
+		super(text.toUpperCase()); //keeps upppercase for other stuff
 		this.sheet = sheet;
-		this.orig = text;
+		this.orig = text; //keeps orig text to pass test
 	}
 	
 	public String fullCellText() {
-		return orig;
+		return orig; //return orig text
 	}
 	
 	public String abbreviatedCellText() {
-		return (getDoubleValue() + "          ").substring(0, 10);
+		return (getDoubleValue() + "          ").substring(0, 10); //fits display
 	}
 
 	public double value(double num1, double num2, String operand) {
-		
+		//solves algebra
 		if(operand.equals("*")) {
 			return num1 * num2;
 		}
@@ -40,6 +40,7 @@ public class FormulaCell extends RealCell implements Cell{
 	}
 	
 	public boolean yesCell(String cell) {
+		//tests for cell names
 		if(Character.isLetter(cell.charAt(0)) && Character.isDigit(cell.charAt(1))) {
 			return true;
 		}
@@ -47,8 +48,8 @@ public class FormulaCell extends RealCell implements Cell{
 	}
 	
 	public double avg(String cellNames) {
-		String[] cells = cellNames.split("-");
-		String[] letter1split = cells[0].split(" ");
+		String[] cells = cellNames.split("-"); //splits the cell range so we can get individual cell names for start and end range
+		String[] letter1split = cells[0].split(" "); 
 		char letter1 = letter1split[2].charAt(0);
 		char letter2 = cells[1].charAt(0);
 		int num1 = Integer.parseInt(letter1split[2].substring(1));
@@ -61,15 +62,15 @@ public class FormulaCell extends RealCell implements Cell{
 				SpreadsheetLocation loc = new SpreadsheetLocation(letter +""+num);
 				sum += ((RealCell)sheet.getCell(loc)).getDoubleValue();
 				divisor ++;
-			}
+			} //adds values of each cell in the range and adds to number of divisors
 		}
 			
-		return sum / divisor;
+		return sum / divisor; //return avg
 
 	}
 
 	public double sum(String cellNames) {
-		String[] cells = cellNames.split("-");
+		String[] cells = cellNames.split("-"); //splits range to get start and end cell names
 		String[] letter1split = cells[0].split(" ");
 		char letter1 = letter1split[2].charAt(0);
 		char letter2 = cells[1].charAt(0);
@@ -81,16 +82,17 @@ public class FormulaCell extends RealCell implements Cell{
 			for(int num = num1; num <= num2; num++) {
 				SpreadsheetLocation loc = new SpreadsheetLocation(letter +""+num);
 				sum += ((RealCell)sheet.getCell(loc)).getDoubleValue();
-			}
+			} //add value of each cell in range
 		}
 		
-		return sum;
+		return sum; //return sum of cells in the range
 	
 	}
 	
 	public double getDoubleValue() {
-		String[] separateOperands = super.fullCellText().split(" ");
+		String[] separateOperands = super.fullCellText().split(" "); //separates formula
 		
+		//finds value for individual cell names
 		for(int i = 0; i < separateOperands.length && !(super.fullCellText().indexOf("AVG") > 0 || super.fullCellText().indexOf("SUM") > 0); i++) {
 			if(yesCell(separateOperands[i]) == true) {
 				SpreadsheetLocation loc = new SpreadsheetLocation(separateOperands[i].toUpperCase());
@@ -102,10 +104,10 @@ public class FormulaCell extends RealCell implements Cell{
 		double num1 = 0.0;
 		double num2 = 0.0;
 		
-		if(super.fullCellText().toUpperCase().indexOf("AVG") > -1) {
+		if(super.fullCellText().toUpperCase().indexOf("AVG") > -1) { //tests for command avg
 			return avg(super.fullCellText());
 		}
-		if(super.fullCellText().toUpperCase().indexOf("SUM") > -1) {;
+		if(super.fullCellText().toUpperCase().indexOf("SUM") > -1) { //tests for command sum
 			return sum(super.fullCellText());
 		}
 		
@@ -119,10 +121,10 @@ public class FormulaCell extends RealCell implements Cell{
 			} else {
 				num2 = 0.0;
 			}
-			value = value(value, num2, operand);
+			value = value(value, num2, operand); //does algebra of formula inputted
 	
 		}
-		return value;
+		return value; //return result of formula
 		
 	}
 

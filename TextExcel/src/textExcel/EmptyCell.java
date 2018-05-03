@@ -3,16 +3,16 @@ package textExcel;
 public class EmptyCell extends RealCell implements Cell
 {
 	public EmptyCell() {
-		super("");
+		super(""); //sets super.fullCellText() as empty string
 	}
 
-	public String abbreviatedCellText() { // text for spreadsheet cell display, must be exactly length 10
-
+	public String abbreviatedCellText() {
+		//fits spreadsheet display
 		return "          ";
 	}
 	
-	public String fullCellText() { // text for individual cell inspection, not truncated or padded
-		return "";
+	public String fullCellText() {
+		return ""; //returns empty string
 	}
 	
 }
