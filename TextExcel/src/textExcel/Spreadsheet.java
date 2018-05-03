@@ -1,7 +1,8 @@
 package textExcel;
 import java.util.*;
 // Update this file with your own code.
-
+//Taylor Nguyen
+//AP Compsci 1st period
 public class Spreadsheet implements Grid
 {
 	private Cell[][] sheet;

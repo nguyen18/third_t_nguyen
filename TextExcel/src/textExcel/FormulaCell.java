@@ -1,5 +1,6 @@
 package textExcel;
-
+//Taylor Nguyen
+//AP Compsci 1st period
 public class FormulaCell extends RealCell implements Cell{
 	private Spreadsheet sheet;
 	
@@ -99,10 +100,10 @@ public class FormulaCell extends RealCell implements Cell{
 		double num1 = 0.0;
 		double num2 = 0.0;
 		
-		if(super.fullCellText().toUpperCase().indexOf("AVG") > 0) {
+		if(super.fullCellText().toUpperCase().indexOf("AVG") > -1) {
 			return avg(super.fullCellText());
 		}
-		if(super.fullCellText().toUpperCase().indexOf("SUM") > 0) {;
+		if(super.fullCellText().toUpperCase().indexOf("SUM") > -1) {;
 			return sum(super.fullCellText());
 		}
 		

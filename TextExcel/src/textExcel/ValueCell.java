@@ -1,5 +1,6 @@
 package textExcel;
-
+//Taylor Nguyen
+//AP Compsci 1st period
 public class ValueCell extends RealCell implements  Cell{
 	
 	public ValueCell(String text) {
